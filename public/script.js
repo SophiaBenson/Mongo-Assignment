@@ -1,3 +1,5 @@
+
+console.log('bird is in scripts');
 var myApp=angular.module('myApp',[]);
 myApp.controller('Assignment', ['$scope', '$http', function ($scope, $http) {
   $scope.addStudent = function () {
@@ -18,5 +20,14 @@ myApp.controller('Assignment', ['$scope', '$http', function ($scope, $http) {
   $scope.scoreIn="";
   $scope.dateIn="";
 };//end of clearing inputs
+$scope.showStudent= function () {
 
+$http({
+  method:'GET',
+  url:'/assignments',
+}).then(function (response) {
+  $scope.allTheAssignments=response.data;
+  console.log($scope.allTheAssignments);
+});
+};
 }]);//end of container

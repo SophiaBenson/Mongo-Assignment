@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>Mongo</title>
-    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="/vendors/angular.min.js" charset="utf-8"></script>
+    <script src="/script.js" charset="utf-8"></script>
   </head>
   <body>
-    <div ng-controller="">
+    <div ng-controller="Assignment">
       <input type="text" ng-model="numberIn" placeholder="Assignment Number"name="name" value="">
       <input type="text" ng-model="nameIn" placeholder="Student Name"name="name" value="">
       <input type="text" ng-model="scoreIn" placeholder="Score"name="name" value="">
       <input type="text" ng-model="dateIn" placeholder="Date Completed"name="name" value="">
-      <button ng-click='addStudent' name="button">Add</button>
-      <button ng-click='showStudent' name="button">Show</button>
+      <button ng-click='addStudent()' name="button">Add</button>
+      <button ng-click='showStudent()' name="button">Show</button>
+      <ul ng-repeat="record in allTheAssignments">
+        <li>{{record.student_name}}</li>
+        <li>{{record.assignment_number}}</li>
+        <li>{{record.score}}</li>
+        <li>{{record.date_completed}}</li>
+      </ul>
     </div>
 
   </body>
